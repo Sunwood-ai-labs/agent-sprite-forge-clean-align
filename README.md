@@ -131,9 +131,9 @@ Retro JRPG pixel-art style.
   </tr>
 </table>
 
-### Codex One-Shot Playable Games
+### Codex-Built Playable Game Showcases
 
-End-to-end playable games designed and built by Codex in a single prompt, with sprites and props produced through `$generate2dsprite` and map scenes planned through `$generate2dmap` when the game needs structured maps.
+End-to-end playable game prototypes designed and built with Codex, with sprites and props produced through `$generate2dsprite` and map scenes planned through `$generate2dmap` when the game needs structured maps. Some are one-shot prompt demos; others are iterative Godot assemblies with generated assets wired into real engine scenes.
 
 #### Neon Breach — Cyberpunk Side-Scroller
 
@@ -169,6 +169,50 @@ Prompt:
 ```text
 Use $generate2dsprite to create a 2D game similar to Pokemon. You only need to build one scene for now. It must include a starter monster selection mechanic, a battle screen, and all basic gameplay functions. I would like you to design all the elements and the story, and you can also decide which game engine to use. Use this skill to create any assets you need. The story should be set in the Sengoku period. Can you try putting this together for me?
 Please also pay attention to the size of the elements (the generated sprites need to be proportionally correct when placed into the game), and a game map must be generated as well. Basically, just help me make a game like this—I believe you won't have any problem doing this with that skill! Just one scene is enough, and there's no need for too many monster characters. Let's just start with a few, and we can slowly expand on it later!
+```
+
+#### Forest Pass Defense — Godot Tower Defense
+
+A Godot 4 tower-defense prototype assembled with Codex + agent-sprite-forge. This showcase goes beyond standalone asset generation: the map, separated props, towers, enemy animation sheets, boss/flying enemies, HUD icons, waves, difficulty settings, build/upgrade/sell flow, projectiles, and targeting rules are wired into a real Godot scene.
+
+<p align="center">
+  <img src="./src/kingdomrush-forest-pass.png" alt="Forest Pass Defense Godot tower-defense map" width="760" />
+  <br />
+  <strong>Godot tower-defense map with route layout, tower placements, props, and base defense area</strong>
+</p>
+
+<table>
+  <tr>
+    <td align="center" width="40%">
+      <img src="./src/kingdomrush-enemy-roster.png" alt="Forest Pass Defense enemy roster with flyer and boss" width="320" />
+      <br />
+      <strong>Enemy roster, including flyer and boss units</strong>
+    </td>
+    <td align="center" width="30%">
+      <img src="./src/kingdomrush-tower-icons.png" alt="Forest Pass Defense generated tower icons" width="260" />
+      <br />
+      <strong>Tower lineup</strong>
+    </td>
+    <td align="center" width="30%">
+      <img src="./src/kingdomrush-hud-icons.png" alt="Forest Pass Defense generated HUD icons" width="260" />
+      <br />
+      <strong>HUD and gameplay icons</strong>
+    </td>
+  </tr>
+</table>
+
+Godot prototype output includes:
+
+- `scenes/ForestPass.tscn` with base map, separated props, enemy paths, tower slots, and HUD nodes.
+- Six tower families with generated tower art and upgrade stages.
+- Animated enemy sheets for ground units, flying units, and boss encounters.
+- Wave, difficulty, tower catalog, collision, route, and tower-slot metadata.
+- Runtime build, upgrade, sell, projectile, and targeting behavior connected in Godot.
+
+Pipeline:
+
+```text
+image_gen map + separated props + tower sheets + enemy animation sheets + HUD icons + Godot gameplay wiring
 ```
 
 ### Layered RPG Map / Clean HD Reference Pipeline
@@ -305,6 +349,7 @@ The current focus is 2D game assets and map scenes, not full game-pack automatio
 - FX sheets
 - Small bundles such as `unit_bundle`, `spell_bundle`, and `combat_bundle`
 - Reference-guided sprite variants, animation sheets, and evolution lines
+- Godot tower-defense prototypes with maps, props, towers, enemies, waves, HUD, and build/upgrade/sell flow
 - Single baked 2D maps
 - Clean HD hand-painted layered maps
 - Layered base maps with transparent props

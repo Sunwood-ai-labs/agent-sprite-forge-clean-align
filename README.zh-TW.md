@@ -131,9 +131,9 @@ Retro JRPG pixel-art style.
   </tr>
 </table>
 
-### Codex 一次到位的可玩遊戲
+### Codex 建置的可玩遊戲 Showcase
 
-完全由 Codex 在單一 prompt 內規劃並完成的可玩遊戲。sprites 與 props 透過 `$generate2dsprite` 生成；當遊戲需要結構化地圖時，地圖場景由 `$generate2dmap` 規劃。
+由 Codex 規劃並建置的可玩遊戲 prototype。sprites 與 props 透過 `$generate2dsprite` 生成；當遊戲需要結構化地圖時，地圖場景由 `$generate2dmap` 規劃。有些是 single-prompt demo，有些則是透過對話迭代，把生成素材接進 Godot 的實際 engine scene。
 
 #### Neon Breach — 賽博龐克橫向捲軸
 
@@ -169,6 +169,50 @@ Prompt:
 ```text
 Use $generate2dsprite to create a 2D game similar to Pokemon. You only need to build one scene for now. It must include a starter monster selection mechanic, a battle screen, and all basic gameplay functions. I would like you to design all the elements and the story, and you can also decide which game engine to use. Use this skill to create any assets you need. The story should be set in the Sengoku period. Can you try putting this together for me?
 Please also pay attention to the size of the elements (the generated sprites need to be proportionally correct when placed into the game), and a game map must be generated as well. Basically, just help me make a game like this—I believe you won't have any problem doing this with that skill! Just one scene is enough, and there's no need for too many monster characters. Let's just start with a few, and we can slowly expand on it later!
+```
+
+#### Forest Pass Defense — Godot 塔防 Prototype
+
+這是一個用 Codex + agent-sprite-forge 組出的 Godot 4 塔防 prototype。它不是只展示素材，也不是單張背景圖，而是把 image-generated 地圖、分離式 props、塔、敵人動畫、Boss、飛行怪、HUD、波次、難度、建塔 / 升級 / 賣塔流程、投射物與目標判定接進可開啟調整的 Godot scene。
+
+<p align="center">
+  <img src="./src/kingdomrush-forest-pass.png" alt="Forest Pass Defense Godot tower-defense map" width="760" />
+  <br />
+  <strong>Godot 塔防地圖：路線、塔位、props 與防守基地都已接進場景</strong>
+</p>
+
+<table>
+  <tr>
+    <td align="center" width="40%">
+      <img src="./src/kingdomrush-enemy-roster.png" alt="Forest Pass Defense enemy roster with flyer and boss" width="320" />
+      <br />
+      <strong>敵人 roster，包含飛行怪與 Boss</strong>
+    </td>
+    <td align="center" width="30%">
+      <img src="./src/kingdomrush-tower-icons.png" alt="Forest Pass Defense generated tower icons" width="260" />
+      <br />
+      <strong>塔的 lineup</strong>
+    </td>
+    <td align="center" width="30%">
+      <img src="./src/kingdomrush-hud-icons.png" alt="Forest Pass Defense generated HUD icons" width="260" />
+      <br />
+      <strong>HUD 與 gameplay icons</strong>
+    </td>
+  </tr>
+</table>
+
+Godot prototype 輸出包含：
+
+- `scenes/ForestPass.tscn`：base map、分離式 props、enemy paths、tower slots 與 HUD nodes。
+- 六種塔系，包含生成出的塔圖與升級階段。
+- 地面敵人、飛行怪與 Boss encounter 的動畫 sheets。
+- wave、difficulty、tower catalog、collision、route 與 tower-slot metadata。
+- Godot 內已接好的建塔、升級、賣塔、投射物與目標判定邏輯。
+
+Pipeline：
+
+```text
+image_gen map + separated props + tower sheets + enemy animation sheets + HUD icons + Godot gameplay wiring
 ```
 
 ### 分層 RPG 地圖 / Clean HD Reference Pipeline
@@ -305,6 +349,7 @@ image_gen tileset + prop_pack_3x3 + layered_tilemap + separate_props + trigger_z
 - FX sheet
 - 小型 bundle，例如 `unit_bundle`、`spell_bundle`、`combat_bundle`
 - 依 reference 生成的 sprite 變體、動畫 sheet 與進化線
+- Godot 塔防 prototype：地圖、props、塔、敵人、波次、HUD、建塔 / 升級 / 賣塔流程
 - 單張 baked 2D map
 - clean HD 手繪風分層地圖
 - base map + 透明 props 的分層地圖
