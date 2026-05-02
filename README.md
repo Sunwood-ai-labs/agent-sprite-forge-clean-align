@@ -88,6 +88,24 @@ These examples were assembled with Codex using `agent-sprite-forge` workflows. T
       A playable side-scroller prototype built around generated character, attack, map, and gameplay assets.
     </td>
   </tr>
+  <tr>
+    <td align="center" width="50%">
+      <img src="./src/pokemonlike2.png" alt="Sengoku Era JavaScript RPG starter selection" width="420" />
+      <br />
+      <strong>Sengoku Era — JavaScript Pokémon-like</strong>
+      <br />
+      A browser-based RPG prototype with generated characters, starter selection, map flow, and battle UI.
+      <br />
+      <a href="https://sengoku-era.vercel.app/">Play build</a>
+    </td>
+    <td align="center" width="50%">
+      <img src="./src/pokemonlike.png" alt="Sengoku Era JavaScript RPG battle scene" width="420" />
+      <br />
+      <strong>Starter selection and battle loop</strong>
+      <br />
+      A compact JavaScript game showcase built from sprite, monster, battle, and map assets generated through the skill workflow.
+    </td>
+  </tr>
 </table>
 
 <details>
@@ -338,6 +356,8 @@ use $generate2dsprite to create a 2D side-scrolling game similar to Mega Man. It
 
 <details>
 <summary>Sengoku Pokémon-like prototype</summary>
+
+Link: <a href="https://sengoku-era.vercel.app/">Play the JavaScript browser build</a>
 
 <table>
   <tr>
