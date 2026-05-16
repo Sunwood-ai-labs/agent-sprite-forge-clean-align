@@ -1,5 +1,10 @@
 # Agent Sprite Forge
 
+> Fork note: this fork keeps the upstream `generate2dsprite` workflow and adds
+> `generate2dsprite-clean-align`, a cleanup/alignment-focused variant for
+> original-resolution 3x3 sprites, magenta-fringe removal, bbox alignment,
+> alpha-similarity alignment, animated WebP previews, and comparison HTML.
+
 Languages: [English](./README.md) | [繁體中文](./README.zh-TW.md) | [简体中文](./README.zh-CN.md) | [日本語](./README.ja.md) | [한국어](./README.ko.md)
 
 <p align="center">
@@ -46,6 +51,28 @@ Agent Sprite Forge is not just a folder of prompts. It is a Codex-first 2D game 
     </td>
   </tr>
 </table>
+
+## Clean Align Fork Skill
+
+This fork includes an additional skill:
+
+- `skills/generate2dsprite-clean-align`
+
+Use it when generated sprite sheets need extra postprocessing quality control:
+
+- preserve original generated resolution instead of downsampling to tiny cells
+- remove magenta/pink background fringes with color-distance cleanup
+- compare direct split, bbox center/feet alignment, and alpha-mask similarity alignment
+- export transparent PNG sprite sheets and animated WebP previews
+- generate side-by-side comparison HTML for visual QA
+
+Install only the fork skill:
+
+```bash
+python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py \
+  --repo Sunwood-ai-labs/agent-sprite-forge-clean-align \
+  --path skills/generate2dsprite-clean-align
+```
 
 ## Showcase
 
