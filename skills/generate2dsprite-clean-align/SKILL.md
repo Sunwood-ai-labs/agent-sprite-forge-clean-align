@@ -44,7 +44,7 @@ Read [references/modes.md](references/modes.md) when the request is ambiguous.
 - Use built-in `image_gen` for every raw image.
 - Do not create raw sprite art with Three.js, Canvas, SVG, HTML/CSS drawing, PIL shape drawing, procedural geometry, placeholder primitives, or code-rendered screenshots. Runtime code may display finished generated assets, and scripts may make layout guides or postprocess generated images, but requested sprite art must originate from built-in `image_gen`.
 - When the user provides or implies a visual reference, use built-in image edit/reference semantics only after the reference image is visible in the conversation context. If the reference is a local file, call `view_image` first; do not rely on a filesystem path in the prompt as the visual reference.
-- Do not force pixel art when the asset is a map prop for `$generate2dmap` or when the user/project requests a different style. Match the map or reference style first.
+- Do not force pixel art when the asset should match an existing map, reference, or non-pixel project style. Match the visible style first.
 - Use scripts only as deterministic processors: magenta cleanup, frame splitting, component filtering, scaling, alignment, QC metadata, transparent sheet export, and WebP/GIF export.
 - Do not use scripts to generate the creative image prompt. If a legacy prompt-builder command exists, treat it as historical compatibility only, not the normal skill workflow.
 - Layout guides are allowed only as deterministic geometry references for image generation. They may show slot count, spacing, centering, and safe padding, but must never define the creative art direction.

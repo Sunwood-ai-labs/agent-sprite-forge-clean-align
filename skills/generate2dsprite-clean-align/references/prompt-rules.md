@@ -28,7 +28,7 @@ Choose the art style from the user request, project context, map context, or ref
 - `clean_hd`: clean hand-painted HD 2D game asset style, crisp silhouettes, smooth surfaces, low texture noise, controlled lighting, no chunky pixels.
 - `pixel_inspired`: clean modern pixel-art-inspired style without 16-bit wording, heavy dithering, or noisy microtexture.
 - `retro_pixel`: 16-bit pixel art or retro JRPG pixel art, only when explicitly requested.
-- `map_style` or `project-native`: match the visible reference, existing game, or `$generate2dmap` selected art style.
+- `map_style` or `project-native`: match the visible reference, existing game, or selected project art style.
 
 Do not write `16-bit`, `retro JRPG`, or `chunky pixel-art` unless the user asks for that look. For clean HD map props, explicitly say `Do not make pixel art`.
 
@@ -95,7 +95,7 @@ For `player` and `npc` when the request does not specify another style:
 
 ## Map Prop Style
 
-For `prop` assets requested by `$generate2dmap`, match the selected map art style:
+For `prop` assets, match the selected map or project art style:
 
 - `clean_hd`: clean hand-painted HD 2D game asset style, crisp silhouettes, smooth painted surfaces, low texture noise, controlled accent lighting, no chunky pixels.
 - `pixel_inspired`: clean modern pixel-art-inspired prop, crisp readable shape, no 16-bit wording, no heavy dithering.
